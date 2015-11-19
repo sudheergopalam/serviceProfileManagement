@@ -1,0 +1,97 @@
+{
+  "uuid": "9cc2b0fa-3222-11e5-86dd-1105bf5ebccc",
+  "type": "profiles",
+  "created": 1437755994495,
+  "modified": 1447729638020,
+  "APIProxy": [
+    {
+      "Name": "CustomerAPI",
+      "Authentication": {
+        "client_credentials": "True",
+        "password": "False",
+        "authorization_code": "False",
+        "implict": "False",
+        "Scopes": "Read, Write"
+      },
+      "CommonPolicies": {
+        "spike arrest": "True",
+        "Logging Debug": "False"
+      },
+      "Resources": [
+        {
+          "name": "customers",
+          "description": "Allows you to create and retrieve customers",
+          "resourcebasepath": "v1/customers",
+          "backend": "backendURL",
+          "SSL-Enabled": true,
+          "verbs": "POST,GET",
+          "Fields": {
+            "id": "Visible",
+            "name": "Visible",
+            "gender": "Visible",
+            "address": "Visible",
+            "nationality": "Hidden",
+            "creditcard": "Hidden",
+            "SSN": "Hidden"
+          }
+        },
+        {
+          "name": "customer_details",
+          "description": "Allows you to retrieve information on an existing customer",
+          "resourcebasepath": "v1/customers/*",
+          "verbs": "GET,POST",
+          "Fields": {
+            "id": "Visible",
+            "first_name": "Visible",
+            "last_name": "Visible",
+            "gender": "Visible",
+            "address1": "Hidden",
+            "city": "Visible",
+            "phone": "Hidden",
+            "nationality": "Visible",
+            "creditcard": "Hidden",
+            "SSN": "Hidden"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "LocationAPI",
+      "Authentication": {
+        "clientcredentials": "True",
+        "password": "True",
+        "authorization_code": "False",
+        "implict": "False",
+        "refresh_token": "False",
+        "Scopes": "Read,Write"
+      },
+      "Resources": [
+        {
+          "name": "getLocation",
+          "description": "Get geo location of the device",
+          "resourcebasepath": "v1/location",
+          "backend": "backendURL",
+          "SSL-Enabled": true,
+          "verbs": "GET,POST",
+          "Fields": {
+            "msisdn": "Visible",
+            "country": "Visible",
+            "city": "Visible",
+            "street": "Hidden",
+            "longitude": "Hidden",
+            "latitude": "Hidden"
+          }
+        }
+      ]
+    }
+  ],
+  "Description": "Some description to explain Basic Profile",
+  "DisplayName": "Basic",
+  "metadata": {
+    "path": "/profiles/9cc2b0fa-3222-11e5-86dd-1105bf5ebccc"
+  },
+  "QuotaInterval": "1",
+  "QuotaTimeUnit": "min",
+  "QuotaValue": "100",
+  "Version": "1.0"
+}

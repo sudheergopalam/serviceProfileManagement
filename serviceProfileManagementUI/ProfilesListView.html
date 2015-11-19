@@ -1,0 +1,38 @@
+<div class="col-md-8 fluid-container"> 
+	
+
+    <ul class="breadcrumb">
+        <li class="active">Profiles</li>
+    </ul>
+	
+	<h1>Profile Management</h1>
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="form-group has-feedback">
+				<label class="control-label">&nbsp;</label>
+				<input type="text" class="form-control" placeholder="Search" ng-model="searchKeyword">
+				<i class="glyphicon glyphicon-search form-control-feedback"></i>
+			</div>
+		</div>
+		<div class="col-xs-8" style="margin-top:30px;">
+			<button class="btn btn-default pull-right tbdAlert" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;New Profile</button>
+		</div>
+	</div>
+	<table ng-table="profilesTable"class="table table-bordered table-striped table-hover">
+	<tr>
+		<th>Profile</th>
+		<th>Created</th>
+		<th>Modified</th>
+		<th>Version</th>
+	</tr>
+	  <tr ng-repeat="x in entities | filter:searchKeyword">
+		<td data-title="'Profile'"><a href="#/viewProfile" ng-click="showProfile(x.uuid)">{{ x.DisplayName }}</a></td>
+		<td data-title="'Created'" ng-bind="(x.created | date:mediumDate)"></td>
+		<td data-title="'Modified'" ng-bind="(x.modified | date:mediumDate)"></td>
+		<td data-title="'Version'">{{ x.Version }}</td>
+	  </tr>
+	</table>
+		
+	
+</div>

@@ -1,0 +1,51 @@
+<div class="col-md-8" class="fluid-container">
+	<ul class="breadcrumb">
+        <li class="cancelProfileEditAlert btn-link">Profiles</li>
+		<li class="active">{{profile.DisplayName}}</li>
+    </ul>
+
+	
+		<h2>Profile: {{profile.DisplayName}}</h2>
+	
+	
+		<h3>Profile details</h3>
+	
+	<div class="form-horizontal">
+		<div class="form-group">
+			<label for="inputName" class="col-sm-2 control-label">Name:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputName" ng-model="profile.DisplayName" disabled>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputDescription" class="col-sm-2 control-label">Description:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputDescription" ng-model="profile.Description" disabled>
+			</div>
+		</div>
+		<div class="row" style="display:inline-block">
+			<label class="col-sm-3" style="text-align:right;">Quota: </label>
+			<input type="text" id="inputQuotaValue" class="col-sm-2" ng-model="profile.QuotaValue"> 
+			<label class="col-sm-3" style="text-align:right;">requests ever </label>
+			<input type="text" id="inputQuotaInterval" class="col-sm-1" ng-model="profile.QuotaInterval" placeholder="what??" >
+			<select class="col-sm-2" style="margin-left:5px;" ng-model="profile.QuotaTimeUnit">
+				<option ng-repeat="item in timeIntervalItems" value="{{item.id}}">{{item.id}}</option>
+			</select>
+		</div>
+	</div>
+	<h3>API Proxies</h3>
+	
+		<table class="table table-bordered table-striped table-hover">
+			<tr>
+				<th>Name</th>
+			</tr>
+		  <tr ng-repeat="x in profile.APIProxy">
+			<td><a href="#/viewProxy" ng-click="showProxy($index)">{{ x.Name }}</a></td>
+		  </tr>
+		</table>
+	
+		<div class="btn-group pull-right" role="group" aria-label="...">
+		  <button type="button" class="btn btn-primary" ng-click="saveProfile();">Save</button>
+		  <button type="button" class="btn btn-danger cancelProfileEditAlert">Cancel</button>
+		</div>
+</div>

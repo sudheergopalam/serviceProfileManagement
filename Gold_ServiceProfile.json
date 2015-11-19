@@ -1,0 +1,96 @@
+{
+  "uuid": "2798427a-30b2-11e5-98ac-c31dd4bc8cd7",
+  "type": "/profiles",
+  "created": 1437597743127,
+  "modified": 1447740003106,
+  "APIProxy": [
+    {
+      "Name": "CustomerAPI",
+      "Authentication": {
+        "client_credentials": "True",
+        "password": "False",
+        "authorization_code": "False",
+        "implict": "False",
+        "Scopes": "Read"
+      },
+      "CommonPolicies": {
+        "SpikeArrest": "True",
+        "DebugLogging": "False"
+      },
+      "Resources": [
+        {
+          "name": "customers",
+          "description": "Allows you to create and retrieve customers",
+          "resourcebasepath": "v1/customers",
+          "backend": "backendURL",
+          "SSL-Enabled": true,
+          "verbs": "POST,DELETE,UPDATE,GET",
+          "Fields": {
+            "name": "Visible",
+            "address": "Visible",
+            "gender": "Visible",
+            "nationality": "Visible",
+            "creditcard": "Masked",
+            "SSN": "Visible"
+          }
+        },
+        {
+          "name": "customer_details",
+          "description": "Allows you to retrieve information on an existing customer",
+          "resourcebasepath": "v1/customers/*",
+          "verbs": "GET,POST,DELETE,UPDATE",
+          "Fields": {
+            "id": "Visible",
+            "first_name": "Visible",
+            "last_name": "Visible",
+            "gender": "Visible",
+            "address1": "Visible",
+            "city": "Visible",
+            "phone": "Visible",
+            "nationality": "Visible",
+            "creditcard": "Masked",
+            "SSN": "Visible"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "LocationAPI",
+      "Authentication": {
+        "client_credentials": "False",
+        "password": "True",
+        "authorization_code": "False",
+        "implict": "False",
+        "refresh_token": "False",
+        "Scopes": "Read,Write"
+      },
+      "Resources": [
+        {
+          "name": "getLocation",
+          "description": "Get geo location of the device",
+          "resourcebasepath": "v1/location",
+          "backend": "backendURL",
+          "SSL-Enabled": true,
+          "verbs": "GET,POST,DELETE,UPDATE",
+          "Fields": {
+            "msisdn": "Visible",
+            "country": "Visible",
+            "city": "Visible",
+            "street": "Visible",
+            "longitude": "Visible",
+            "latitude": "Visible"
+          }
+        }
+      ]
+    }
+  ],
+  "Description": "Some description to explain Gold Profile",
+  "DisplayName": "Gold",
+  "metadata": {
+    "path": "/profiles/2798427a-30b2-11e5-98ac-c31dd4bc8cd7"
+  },
+  "QuotaInterval": "1",
+  "QuotaTimeUnit": "min",
+  "QuotaValue": "100000",
+  "Version": "1.0"
+}
